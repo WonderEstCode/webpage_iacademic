@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import AbstractShapes from './abstractShapes.svelte';
 	const VITE_CAPTCHA_SITE_KEY = import.meta.env.VITE_CAPTCHA_SITE_KEY;
 	const courses = [
 		{
@@ -127,17 +128,16 @@
 
 <main
 	id="contact"
-	class="background flex h-full flex-col items-center justify-center bg-cover bg-center"
+	class="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#121b1d] to-[#271164]"
 >
 	<div class="flex h-full w-full flex-wrap">
-		<div class="hidden md:block md:w-1/2"></div>
-
-		<div class="glass-effect flex h-full w-full flex-col items-center justify-center md:w-1/2">
-			<div class="max-w-full overflow-hidden px-8 py-32">
+		<!-- Cambiar de hidden a block para mostrar el lado izquierdo -->
+		<div class="flex w-full items-center justify-center md:block md:w-3/5">
+			<div class="glass-effect mx-auto max-w-xl rounded-lg px-8 py-10 md:py-20 lg:my-20">
 				<h2 class="font-base mb-7 text-center text-lg text-white sm:text-xl md:text-2xl">
 					Conéctate con un asesor para más información
 				</h2>
-				<form method="POST" on:submit={handleSubmit} class="mx-auto mt-4 w-full max-w-xl sm:mt-4">
+				<form method="POST" on:submit={handleSubmit} class="mx-auto mt-8 w-full max-w-2xl sm:mt-4">
 					<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 						<div>
 							<label for="fullname" class="block text-sm font-semibold leading-6 text-white">
@@ -279,7 +279,7 @@
 					<div class="mt-10">
 						<button
 							type="submit"
-							class="block w-full rounded-md bg-gray-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+							class="block w-full rounded-md bg-[#5b49d1] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#5b49d1]/60"
 						>
 							Enviar
 						</button>
@@ -290,21 +290,24 @@
 					{/if}
 
 					{#if errorMessage}
-						<p class="mt-4 text-center text-red-500">{errorMessage}</p>
+						<p class="mt-4 text-center text-[#5b49d1]">{errorMessage}</p>
 					{/if}
 				</form>
 			</div>
 		</div>
+
+		<!-- Ocultar la segunda mitad en escritorio para mover el formulario a la izquierda -->
+		<div class="hidden md:block md:w-2/5"></div>
 	</div>
 </main>
 
 <style>
-	.background {
+	/* .background {
 		height: auto;
 		background-size: cover;
 		background-position: top;
 		background-attachment: scroll, local;
-		background-image: url('/contact.webp');
+		background-image: url('/background-hero.webp');
 	}
 
 	@media (max-width: 768px) {
@@ -312,21 +315,21 @@
 			background-attachment: fixed;
 			background-position: right;
 		}
-	}
+	} */
 	.glass-effect {
 		background: rgba(138, 127, 127, 0.248);
 		backdrop-filter: blur(10px);
 		border: none;
-		border-radius: 0;
+		border-radius: 10px; /* Agrega un borde redondeado */
 	}
 
 	select {
-		background-color: #2d2d2d;
+		background-color: transparent;
 		color: #ffffff;
 	}
 
 	select option {
-		background-color: #2d2d2d;
-		color: #ffffff;
+		background-color: #ffffff;
+		color: #2d2d2d;
 	}
 </style>

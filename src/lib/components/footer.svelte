@@ -10,22 +10,22 @@
 	let currentYear = new Date().getFullYear();
 </script>
 
-<footer class="bg-transparent">
+<footer class="bg-gradient-to-t from-[#121b1d] to-[#271164]">
 	<main
-		class="flex w-full flex-col items-center justify-center px-8 py-8 text-white md:flex-row md:px-36 md:py-16"
+		class="flex w-full flex-col items-center justify-center px-8 py-8 text-[#2a2c2d] md:flex-row md:px-36 md:py-16"
 	>
 		<div class="mb-6 flex min-w-0 flex-1 flex-col items-center text-center md:mb-0">
 			<a href="/" class="mb-2 flex items-center space-x-2">
 				<Image
-					alt="Logo Centic"
-					src="/logo_centic.webp"
-					width={56}
-					height={46}
-					layout="constrained"
+					alt="Logo Iacademic"
+					src="/logos/desktop.svg"
+					width={182}
+					height={50}
+					role="figure"
 				/>
-				<span class="self-center whitespace-nowrap text-2xl font-semibold">Centic</span>
 			</a>
-			<span class="text-xs text-gray-400">© {currentYear} Centic. All Rights Reserved.</span>
+			<span class="text-xs text-[#2a2c2d]/80">© {currentYear} Iacademic. All Rights Reserved.</span
+			>
 		</div>
 
 		<div class="mb-6 flex min-w-0 flex-1 justify-center space-x-2 md:mb-0">
@@ -67,7 +67,7 @@
 				height={100}
 				layout="constrained"
 			/>
-			<p class="text-xs text-gray-400">
+			<p class="text-xs text-[#2a2c2d]/80">
 				Esta página web fue hecha por <span class="font-semibold">Ultra Developments SAS</span>.
 				<a
 					href="mailto:gerencia@ultradev.com.co"
@@ -78,9 +78,9 @@
 		</div>
 	</main>
 
-	<hr class="my-2 border-gray-500 sm:mx-auto" />
+	<hr class="my-2 border-gray-300 sm:mx-auto" />
 
-	<div class="py-5 text-center text-gray-300">
+	<div class="py-5 text-center text-[#2a2c2d]/80">
 		<p class="text-xs">
 			ITIL® is a registered trademark of AXELOS Limited, used under permission of AXELOS Limited.
 			The Swirl logo™ is a trademark of AXELOS Limited, used under permission of AXELOS Limited.

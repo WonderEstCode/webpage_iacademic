@@ -51,7 +51,7 @@
 				<div
 					class="rounded-3xl bg-gradient-to-br from-gray-700 to-gray-800 p-6 text-gray-200 shadow-xl transition-shadow duration-300 hover:shadow-2xl"
 				>
-					<div class="mb-5 flex items-center border-b border-red-600 pb-5">
+					<div class="mb-5 flex items-center border-b border-[#5b49d1] pb-5">
 						<div>
 							<span class="block text-lg font-semibold">Próxima apertura de curso: </span>
 							<span class="font-medium text-gray-300">
@@ -62,7 +62,7 @@
 					<a
 						href={inscriptionLink(course)}
 						target="_blank"
-						class="flex items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2 text-xs font-semibold text-white transition-all duration-500 hover:bg-red-700"
+						class="flex items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2 text-xs font-semibold text-[#f4f6fa] transition-all duration-500 hover:bg-red-700"
 					>
 						Inscribirse
 					</a>
@@ -74,7 +74,7 @@
 			<div
 				class="rounded-3xl bg-gradient-to-br from-gray-700 to-gray-800 p-6 text-gray-200 shadow-xl transition-shadow duration-300 hover:shadow-2xl"
 			>
-				<div class="mb-5 flex items-center border-b border-red-600 pb-5">
+				<div class="mb-5 flex items-center border-b border-[#5b49d1] pb-5">
 					<div>
 						<span class="block text-lg font-semibold">¿No encuentras la fecha que buscas?</span>
 					</div>
@@ -83,7 +83,7 @@
 					<a
 						href={inquiryLink(courses[0])}
 						target="_blank"
-						class="flex items-center justify-center gap-2 rounded-full border border-white px-5 py-2 text-xs font-semibold text-white transition-all duration-500 hover:bg-white/10"
+						class="flex items-center justify-center gap-2 rounded-full border border-white px-5 py-2 text-xs font-semibold text-[#f4f6fa] transition-all duration-500 hover:bg-white/10"
 					>
 						Preguntar
 					</a>
@@ -94,13 +94,13 @@
 
 	<button
 		on:click={prev}
-		class="absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 text-white hover:bg-gray-600 active:bg-gray-500"
+		class="absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 text-[#f4f6fa] hover:bg-gray-600 active:bg-gray-500"
 	>
 		<AngleLeftOutline size="lg" />
 	</button>
 	<button
 		on:click={next}
-		class="absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 text-white hover:bg-gray-600 active:bg-gray-500"
+		class="absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 text-[#f4f6fa] hover:bg-gray-600 active:bg-gray-500"
 	>
 		<AngleRightOutline size="lg" />
 	</button>

@@ -72,7 +72,7 @@
 
 <Navbar
 	let:toggle
-	class="glass-effect !white:text-white fixed left-1/2 top-4 z-50 w-full max-w-[99%] -translate-x-1/2 transform px-4 py-1 shadow-lg"
+	class="glass-effect fixed left-1/2 top-0 z-50 w-full max-w-[99%] -translate-x-1/2 transform px-4 !text-white shadow-lg md:py-0"
 >
 	<NavBrand href="/">
 		<Image alt="Logo Iacademic" src="/logos/desktop.svg" width={182} height={50} role="figure" />
@@ -218,7 +218,7 @@
 -->
 <style>
 	:global(.glass-effect) {
-		background: rgba(119, 119, 119, 0.432);
+		background: rgba(0, 0, 0, 0.432);
 		backdrop-filter: blur(30px);
 		border: 1px solid rgba(64, 64, 64, 0.057);
 		border-radius: 15px;

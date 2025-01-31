@@ -25,7 +25,8 @@
 </script>
 
 <body
-	class="max-w-5/5 w-5/5 mx-auto mb-0 mt-0 bg-gradient-to-b from-red-800 to-[#121b1d] lg:bg-gradient-to-r"
+	class="max-w-5/5 w-5/5 mx-auto mb-0 mt-0 bg-cover bg-center"
+	style="background-image: url('/background-hero.webp');"
 >
 	<main class="md:pt-[3rem]">
 		<section class="max-w-4/5 mx-auto mb-0 grid w-4/5 grid-cols-1 gap-5 p-12 pt-28 md:grid-cols-5">
@@ -44,7 +45,7 @@
 					href={whatsappLink}
 					target="_blank"
 					rel="noopener noreferrer"
-					class=" inline-flex items-center gap-2 rounded-full border border-solid border-gray-300 px-5 py-2 text-xs font-semibold text-white transition-all duration-500 hover:bg-white/5"
+					class=" inline-flex items-center gap-2 rounded-full border border-solid border-gray-300 px-5 py-2 text-xs font-semibold text-[#f4f6fa] transition-all duration-500 hover:bg-white/5"
 				>
 					Contáctanos por WhatsApp
 				</a>
@@ -94,13 +95,13 @@
 				<div class="flex w-full items-start md:w-full lg:w-1/4">
 					<div class="mr-2"><DesktopPcOutline size="xl" /></div>
 					<div>
-						<span class="text-base font-light">Clases virtuales</span>
+						<span class="text-base font-light">Clases en vídeo</span>
 						<Heading
 							tag="h3"
 							class="mb-4 text-neutral-50"
 							customSize="text-lg font-black sm:text-xl xl:text-2xl"
 						>
-							En vivo
+							IA
 						</Heading>
 					</div>
 				</div>

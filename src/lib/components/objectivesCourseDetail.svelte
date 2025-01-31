@@ -50,10 +50,10 @@
 			<div class="relative lg:pr-4">
 				<div class="glow-background" style="top: 95%; left: 1%;"></div>
 				<div class="relative z-10 lg:max-w-lg">
-					<p class="text-base font-semibold leading-7 text-red-500">
+					<p class="text-base font-semibold leading-7 text-[#5b49d1]">
 						{subtitle}
 					</p>
-					<h1 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+					<h1 class="mt-2 text-3xl font-bold tracking-tight text-[#f4f6fa] sm:text-4xl">
 						{title}
 					</h1>
 					<div class="glow-background" style="top: 90%; left: 1%;"></div>
@@ -80,21 +80,21 @@
 			<div class="lg:pr-4">
 				<div class="max-w-xl text-base leading-7 text-gray-300 lg:max-w-lg">
 					<p>{description}</p>
-					<h2 class="mt-6 text-lg font-bold tracking-tight text-white sm:text-xl">Objetivos</h2>
+					<h2 class="mt-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">Objetivos</h2>
 					<ul role="list" class="mt-8 space-y-8 text-gray-400">
 						{#each objectives as objective}
 							<li class="flex gap-x-3">
-								<CheckOutline class="text-red-500" />
+								<CheckOutline class="text-[#5b49d1] " />
 								<span>
-									<strong class="font-semibold text-white">{objective}</strong>
+									<strong class="font-semibold text-[#f4f6fa]">{objective}</strong>
 								</span>
 							</li>
 						{/each}
 					</ul>
-					<h2 class="my-6 text-lg font-bold tracking-tight text-white sm:text-xl">
+					<h2 class="my-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">
 						Formato y duración del examen
 					</h2>
-					<List tag="ul" class="space-y-1 text-gray-500 dark:text-gray-400" list="none">
+					<List tag="ul" class="space-y-1 text-gray-200 dark:text-gray-400" list="none">
 						{#each examInfo as info}
 							<Li>{info}</Li>
 						{/each}

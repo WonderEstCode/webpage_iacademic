@@ -18,7 +18,6 @@
 <div
 	class="hero-section flex flex-col items-center justify-start text-center md:items-start md:justify-center md:text-start"
 >
-	<!-- Imagen de fondo -->
 	<Image
 		src="/background-hero.webp"
 		layout="fullWidth"

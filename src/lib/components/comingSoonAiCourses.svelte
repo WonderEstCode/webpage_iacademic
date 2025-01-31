@@ -60,7 +60,7 @@
 			<Image class="rounded-2xl" src="/8329.jpg" layout="constrained" width={450} height={350} />
 		</div>
 		<div class="order-1 flex flex-col justify-center lg:order-2 lg:w-2/3">
-			<p class="text-red-00 text-base font-semibold leading-7 text-red-500">
+			<p class="text-red-00 text-base font-semibold leading-7 text-[#5b49d1]">
 				Cursos potenciados con IA
 			</p>
 			<h2 class="mb-10 mt-2 text-3xl font-semibold text-white sm:text-[40px]/[48px]">
@@ -76,7 +76,7 @@
 							class="relative min-w-[calc(50%-1rem)] flex-shrink-0 rounded-lg bg-gray-800 p-6 shadow-lg transition duration-300 sm:min-w-full md:min-w-[calc(50%-1rem)]"
 							style="width: calc(100% / {itemsPerSlide} - 1rem);"
 						>
-							<p class="mb-2 text-sm font-semibold text-red-500">{course.type}</p>
+							<p class="mb-2 text-sm font-semibold text-[#5b49d1]">{course.type}</p>
 							<h4 class="mb-4 text-xl font-bold text-white">{course.title}</h4>
 							<p class="mb-4 text-gray-300">{course.description}</p>
 							<div class="flex items-center justify-between text-sm text-gray-400">

@@ -8,7 +8,7 @@
 	import { WhatsappSolid } from 'flowbite-svelte-icons';
 </script>
 
-<div class="z-[-2] flex min-h-screen flex-col bg-[#121b1d]">
+<div class="z-[-2] flex min-h-screen flex-col bg-gradient-to-l from-[#ffffff] to-indigo-200">
 	<Navbar />
 
 	<main class="flex-grow">

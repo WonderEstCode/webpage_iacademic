@@ -4,7 +4,7 @@
 
 	let courses = [
 		{
-			type: 'Curso en vivo',
+			type: 'Curso con IA experta',
 			title: 'ITIL ® 4 Fundamentos',
 			description:
 				'Domina los conceptos básicos de ITIL ® y optimiza la gestión de servicios de TI.',
@@ -14,7 +14,7 @@
 			route: 'courses/itil-4-fundamentos'
 		},
 		{
-			type: 'Curso en vivo',
+			type: 'Curso con IA experta',
 			title: 'Agile Coach ',
 			description:
 				'Desarrolla habilidades de coaching ágil para guiar a equipos y organizaciones hacia el éxito.',
@@ -24,7 +24,7 @@
 			route: 'courses/agile-coach'
 		},
 		{
-			type: 'Curso en vivo',
+			type: 'Curso con IA experta',
 			title: 'SCRUM',
 			description:
 				'Elige entre varias certificaciones Scrum y valida tus conocimientos en agilidad y gestión de equipos.',
@@ -34,7 +34,7 @@
 			route: 'courses/scrum'
 		},
 		{
-			type: 'Curso en vivo',
+			type: 'Curso con IA experta',
 			title: 'Certified ISO 22301',
 			description:
 				'Elige entre las certificaciones de Auditor Interno o Auditor Líder ISO 22301 y garantiza la continuidad del negocio.',
@@ -103,7 +103,7 @@
 	});
 </script>
 
-<div class="max-w-4/5 mx-auto my-16 w-4/5 bg-transparent p-8 text-white" id="best-courses">
+<div class="max-w-4/5 mx-auto my-16 w-4/5 bg-transparent p-8 text-[#2a2c2d]" id="best-courses">
 	<div class="flex flex-col space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0">
 		<div class="order-2 flex items-center justify-end lg:order-1 lg:w-2/5 xl:w-1/2">
 			<video
@@ -119,10 +119,10 @@
 			</video>
 		</div>
 		<div class="order-1 flex flex-col justify-center lg:order-2 lg:w-3/5 xl:w-1/2">
-			<p class="text-red-00 text-base font-semibold leading-7 text-red-500">
-				Nuestro cursos con clases en vivo
+			<p class="text-red-00 text-base font-semibold leading-7 text-[#5b49d1]">
+				Nuestro cursos con Inteligencia Artificial
 			</p>
-			<h2 class="mb-10 mt-2 text-3xl font-semibold text-white sm:text-[40px]/[48px]">
+			<h2 class="mb-10 mt-2 text-3xl font-semibold text-[#2a2c2d] sm:text-[40px]/[48px]">
 				Más solicitados
 			</h2>
 			<div class="relative overflow-hidden">
@@ -133,14 +133,14 @@
 					{#each courses as course (course.title)}
 						<a
 							href={course.route}
-							class="relative min-w-[calc(50%-1rem)] flex-shrink-0 rounded-lg border border-gray-800 bg-gray-800 p-6 shadow-lg transition duration-300 hover:border hover:border-gray-600 hover:bg-gray-950 sm:min-w-full md:min-w-[calc(50%-1rem)]"
+							class="relative min-w-[calc(50%-1rem)] flex-shrink-0 rounded-lg border border-[#c0c0c066] bg-[#c0c0c066] p-6 transition duration-300 hover:border hover:border-gray-300 hover:bg-gray-300 sm:min-w-full md:min-w-[calc(50%-1rem)]"
 							style="width: calc(100% / {itemsPerSlide} - 1rem);"
 						>
-							<p class="mb-2 text-sm font-semibold text-red-500">{course.type}</p>
-							<h3 class="mb-4 text-xl font-bold text-white">{course.title}</h3>
-							<p class="mb-4 text-gray-300">{course.description}</p>
+							<p class="mb-2 text-sm font-semibold text-[#5b49d1]">{course.type}</p>
+							<h3 class="mb-4 text-xl font-bold text-[#2a2c2d]">{course.title}</h3>
+							<p class="mb-4 text-[#2a2c2d]">{course.description}</p>
 							<div class="flex justify-between space-x-2 text-sm">
-								<span class="rounded-full border border-red-600 px-2 py-1 text-gray-200">
+								<span class="rounded-full border border-[#5b49d1] px-2 py-1 text-[#2a2c2d]">
 									{course.duration}
 								</span>
 								<AngleRightOutline size="lg" />
@@ -152,13 +152,13 @@
 			<div class="mb-2 mt-4 flex justify-between">
 				<button
 					on:click={previous}
-					class="rounded-lg bg-gray-800 px-3 py-2 text-white hover:bg-gray-900"
+					class="rounded-lg bg-[#c0c0c066] px-3 py-2 text-[#2a2c2d] hover:bg-gray-300"
 				>
 					Anterior
 				</button>
 				<button
 					on:click={next}
-					class="rounded-lg bg-gray-800 px-3 py-2 text-white hover:bg-gray-900"
+					class="rounded-lg bg-[#c0c0c066] px-3 py-2 text-[#2a2c2d] hover:bg-gray-300"
 				>
 					Siguiente
 				</button>

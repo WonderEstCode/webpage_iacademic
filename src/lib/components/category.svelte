@@ -26,42 +26,10 @@
 	}
 </script>
 
-<main class="relative isolate overflow-hidden bg-[#121b1d] lg:overflow-visible lg:px-0">
-	<div class="absolute inset-0 -z-10 overflow-hidden">
-		<svg
-			class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-800 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
-			aria-hidden="true"
-		>
-			<defs>
-				<pattern
-					id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-					width="200"
-					height="200"
-					x="50%"
-					y="-1"
-					patternUnits="userSpaceOnUse"
-				>
-					<path d="M100 200V.5M.5 .5H200" fill="none" />
-				</pattern>
-			</defs>
-			<rect
-				width="100%"
-				height="100%"
-				stroke-width="0"
-				fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-			/>
-			{#each spots as spot}
-				<circle
-					cx={spot.cx}
-					cy={spot.cy}
-					r={spot.r}
-					fill="#7f1d1d"
-					opacity={spot.opacity}
-					class="glow-background"
-				/>
-			{/each}
-		</svg>
-	</div>
+<main
+	class="relative isolate overflow-hidden bg-[#121b1d] lg:overflow-visible lg:px-0"
+	style="background-image: url('/background-hero.webp');"
+>
 	<div class="ms-[10%] !max-w-[90%] sm:!me-[0%] xl:pb-[1srem] xl:pt-10">
 		{#if filteredCourses.length > 0}
 			<div class="relative">
@@ -95,7 +63,7 @@
 				</button>
 			</div>
 		{:else}
-			<p class="mt-8 text-center text-white">No hay cursos disponibles para esta categoría.</p>
+			<p class="mt-8 text-center text-[#2a2c2d]">No hay cursos disponibles para esta categoría.</p>
 		{/if}
 	</div>
 </main>
