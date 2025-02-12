@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import AbstractShapes from './abstractShapes.svelte';
 	const VITE_CAPTCHA_SITE_KEY = import.meta.env.VITE_CAPTCHA_SITE_KEY;
 	const courses = [
 		{
@@ -135,7 +134,7 @@
 		<!-- Cambiar de hidden a block para mostrar el lado izquierdo -->
 		<div class="flex w-full items-start justify-center md:block md:w-3/5">
 			<div
-				class="glass-effect mx-auto max-w-xl rounded-lg py-10 pl-12 pr-8 md:py-20 lg:my-20 lg:ml-[5%] lg:mr-auto"
+				class="glass-effect mx-auto max-w-xl rounded-lg py-10 pl-12 pr-8 md:py-20 lg:my-20 lg:ml-[12%] lg:mr-auto xl:ml-[15%]"
 			>
 				<h2 class="font-base mb-7 text-center text-lg text-white sm:text-xl md:text-2xl">
 					Conéctate con un asesor para más información
