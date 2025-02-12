@@ -34,7 +34,7 @@
 	class="relative isolate overflow-hidden bg-[#121b1d] px-6 py-24 lg:px-0"
 	style="background-image: url('/background-hero.webp'); background-size: cover; background-position: center;"
 >
-	<div class="mx-auto max-w-[95%] px-6 lg:px-24">
+	<div class="mx-auto max-w-[95%] px-6 lg:max-w-[92%] lg:px-24 xl:max-w-[87%]">
 		<div
 			class="grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-10"
 		>

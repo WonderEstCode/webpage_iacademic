@@ -37,16 +37,16 @@
 	>
 		<Heading
 			tag="h1"
-			class="mb-4 !text-[#1cf2d8]"
-			customSize="text-4xl font-black sm:text-3xl md:text-4xl xl:text-5xl"
+			class="mb-4"
+			customSize="font-black text-4xl sm:text-3xl md:text-4xl xl:text-5xl"
 		>
 			<Span
 				gradient
-				gradientClass="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-200"
+				gradientClass="text-transparent bg-clip-text bg-gradient-to-l to-emerald-200 from-white"
 			>
-				EDUCACIÓN<br /> DEL FUTURO CON <br />
+				EDUCACIÓN<br /> DEL FUTURO CON <br /> IACADEMIC
 			</Span>
-			IACADEMIC
+			<!-- <span class="font-base"> IACADEMIC </span> -->
 		</Heading>
 		<List tag="ul" class="mb-8 space-y-4 text-gray-200" list="none">
 			<Li icon class="gap-3">
@@ -69,13 +69,26 @@
 			</Li>
 		</List>
 
-		<Button
-			class="w-auto self-center !bg-[#10796ce0] text-white hover:!bg-[#1cf2d8]/80 md:self-start"
-		>
-			<a href="#best-courses" on:click|preventDefault={scrollToBestCourses}>
-				¡Explora Iacademic!
-			</a>
-		</Button>
+		<div class="flex items-stretch gap-2 md:gap-4 lg:-ml-16 xl:-ml-24">
+			<Button class="mr-2 w-auto !bg-[#10796ce0] text-white hover:!bg-[#1cf2d8]/70">
+				<a
+					href="#best-courses"
+					class="block h-full w-full"
+					on:click|preventDefault={scrollToBestCourses}
+				>
+					¡Explora Iacademic!
+				</a>
+			</Button>
+			<Button class="w-auto !bg-zinc-200 !text-gray-800 hover:!bg-zinc-300">
+				<a
+					href="https://www.iacademic.net/es/auth/sign-in"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Ingresar a plataforma
+				</a>
+			</Button>
+		</div>
 	</div>
 </div>
 
