@@ -32,7 +32,9 @@
 	<AbstractShapes />
 
 	<!-- Contenido principal -->
-	<div class="relative z-10 mt-32 flex flex-col items-center md:ml-32 md:mt-0 lg:ml-48 2xl:ml-72">
+	<div
+		class="relative z-10 mt-[15rem] flex flex-col items-center md:ml-32 md:mt-0 lg:ml-48 2xl:ml-72"
+	>
 		<Heading
 			tag="h1"
 			class="mb-4 !text-[#1cf2d8]"

@@ -75,7 +75,7 @@
 	class="glass-effect fixed left-1/2 top-0 z-50 w-full max-w-[99%] -translate-x-1/2 transform px-4 !text-white shadow-lg md:py-0"
 >
 	<NavBrand href="/">
-		<Image alt="Logo Iacademic" src="/logos/desktop.svg" width={182} height={50} role="figure" />
+		<Image alt="Logo Iacademic" src="/logos/desktop.svg" width={220} height={55} role="figure" />
 	</NavBrand>
 	<div class="flex items-end md:order-2">
 		<NavHamburger onClick={() => onNavHamburgerClick(toggle)} class="hover:bg-transparent" />

@@ -129,11 +129,14 @@
 <main
 	id="contact"
 	class="flex h-full flex-col items-center justify-center bg-gradient-to-b from-[#121b1d] to-[#271164]"
+	style="background-image: url('/footer-bg.webp'); background-size: cover; background-position: center;"
 >
 	<div class="flex h-full w-full flex-wrap">
 		<!-- Cambiar de hidden a block para mostrar el lado izquierdo -->
-		<div class="flex w-full items-center justify-center md:block md:w-3/5">
-			<div class="glass-effect mx-auto max-w-xl rounded-lg px-8 py-10 md:py-20 lg:my-20">
+		<div class="flex w-full items-start justify-center md:block md:w-3/5">
+			<div
+				class="glass-effect mx-auto max-w-xl rounded-lg py-10 pl-12 pr-8 md:py-20 lg:my-20 lg:ml-[5%] lg:mr-auto"
+			>
 				<h2 class="font-base mb-7 text-center text-lg text-white sm:text-xl md:text-2xl">
 					Conéctate con un asesor para más información
 				</h2>
@@ -149,7 +152,7 @@
 									name="fullname"
 									id="fullname"
 									autocomplete="given-name"
-									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 									required
 								/>
 							</div>
@@ -164,7 +167,7 @@
 									name="company"
 									id="company"
 									autocomplete="organization"
-									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 								/>
 							</div>
 						</div>
@@ -179,7 +182,7 @@
 									id="email"
 									autocomplete="email"
 									placeholder="tucorreo@gmail.com"
-									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 									required
 								/>
 							</div>
@@ -196,7 +199,7 @@
 									autocomplete="tel"
 									placeholder="+573001234567"
 									pattern="^\+?[0-9]+$"
-									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 									required
 								/>
 								<p class="mt-1 text-sm text-gray-200">
@@ -212,7 +215,7 @@
 							<select
 								name="course"
 								id="course"
-								class="bg-dark block w-full rounded-md border-0 bg-gray-700 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+								class="bg-dark block w-full rounded-md border-0 bg-gray-700 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 								required
 							>
 								{#each courses as course}
@@ -226,18 +229,19 @@
 						</div>
 						<div class="sm:col-span-2">
 							<label for="participants" class="block text-sm font-semibold leading-6 text-white">
-								¿Cuántos participantes están interesados?
+								¿De dónde escuchaste de nosotros?
 							</label>
 							<div class="mt-2.5">
 								<select
 									name="participants"
 									id="participants"
-									class="bg-dark block w-full rounded-md border-0 bg-gray-700 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-600 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="bg-dark block w-full rounded-md border-0 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 									required
 								>
-									<option value="Solo yo">Solo yo</option>
-									<option value="2 personas o más">2 personas o más</option>
-									<option value="10 personas o más">10 personas o más</option>
+									<option value="social">Redes sociales</option>
+									<option value="google">Búsqueda en google</option>
+									<option value="recomendación">Recomendación</option>
+									<option value="recomendación">Otro</option>
 								</select>
 							</div>
 						</div>
@@ -251,7 +255,7 @@
 									id="message"
 									rows="4"
 									placeholder="Escribe más información que consideres relevante"
-									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+									class="block w-full rounded-md border-0 bg-transparent px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-200 placeholder:text-gray-100 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
 								></textarea>
 							</div>
 						</div>

@@ -110,7 +110,7 @@
 		position: absolute;
 		width: 300px;
 		height: 300px;
-		background: radial-gradient(circle, rgba(255, 0, 0, 0.342) 0%, transparent 40%);
+		background: radial-gradient(circle, rgba(76, 53, 250, 0.587) 0%, transparent 40%);
 		filter: blur(50px);
 		transform: translate(-50%, -50%);
 		pointer-events: none;
