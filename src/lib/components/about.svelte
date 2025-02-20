@@ -31,10 +31,10 @@
 </script>
 
 <section
-	class="relative isolate overflow-hidden bg-[#121b1d] px-6 py-24 lg:px-0"
+	class="relative isolate overflow-hidden bg-[#121b1d] px-2 py-24 lg:px-0"
 	style="background-image: url('/background-hero.webp'); background-size: cover; background-position: center;"
 >
-	<div class="mx-auto max-w-[95%] px-6 lg:max-w-[92%] lg:px-24 xl:max-w-[87%]">
+	<div class="mx-auto max-w-[99%] px-6 lg:max-w-[92%] lg:px-24 xl:max-w-[87%]">
 		<div
 			class="grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-10"
 		>
@@ -54,43 +54,48 @@
 			</div>
 
 			<div class="relative flex w-full flex-col items-center">
-				<div
-					class="feature-card glass-effect mb-0 flex w-full max-w-lg items-center justify-between rounded-b-none rounded-t-lg p-5 !text-white shadow-lg"
-				>
-					<div class="flex items-center space-x-4">
-						<div>
-							<h3 class="text-lg font-semibold text-white">
-								{features[currentFeatureIndex].title}
-							</h3>
-							<p class="mt-1 text-sm text-gray-300">
-								{features[currentFeatureIndex].description}
-							</p>
+				<div class="relative w-full max-w-lg">
+					<Image
+						alt="Imagen ilustrativa de Iacademic"
+						class="w-full rounded-t-lg object-cover transition-opacity duration-500 ease-in-out"
+						src={features[currentFeatureIndex].image}
+						layout="constrained"
+						width={600}
+						height={350}
+						loading="lazy"
+					/>
+
+					<div
+						class="feature-card glass-effect relative w-full !rounded-t-none rounded-b-lg p-5 !text-white shadow-lg"
+					>
+						<div class="flex items-center">
+							<!-- Contenedor del texto con longitud fija -->
+							<div class="flex-1 pr-16">
+								<h3
+									class="min-h-[24px] truncate text-lg font-semibold text-white"
+									style="width: 90%; max-width: 250px;"
+								>
+									{features[currentFeatureIndex].title}
+								</h3>
+								<p
+									class="wrap mt-1 min-h-[36px] text-clip text-sm text-gray-300"
+									style="width: 90%; max-width: 250px;"
+								>
+									{features[currentFeatureIndex].description}
+								</p>
+							</div>
+
+							<!-- Botón centrado verticalmente -->
+							<button
+								class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-white"
+								on:click={nextFeature}
+							>
+								<ChevronRightOutline class="h-6 w-6" />
+							</button>
 						</div>
 					</div>
-
-					<button class="text-gray-400 transition hover:text-white" on:click={nextFeature}>
-						<ChevronRightOutline class="h-6 w-6" />
-					</button>
 				</div>
-
-				<Image
-					alt="Imagen ilustrativa de Iacademic"
-					class="w-full max-w-lg rounded-lg object-cover transition-opacity duration-500 ease-in-out"
-					src={features[currentFeatureIndex].image}
-					layout="constrained"
-					width={600}
-					height={350}
-					loading="lazy"
-				/>
 			</div>
 		</div>
 	</div>
 </section>
-
-<style>
-	.feature-card {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-</style>

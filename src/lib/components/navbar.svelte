@@ -6,18 +6,33 @@
 		NavUl,
 		NavHamburger,
 		Dropdown,
-		DropdownItem
+		DropdownItem,
+		Drawer,
+		Heading,
+		CloseButton
 	} from 'flowbite-svelte';
 	import { CartOutline, ChevronDownOutline } from 'flowbite-svelte-icons';
 	import RegisterMark from './registerMark.svelte';
-	// import { cart } from '../stores/cart';
-	// import { onMount } from 'svelte';
-	// import { sineIn } from 'svelte/easing';
-	// import { formatCurrency, formatDate } from '$lib/utils/format';
+	import { cart } from '../stores/cart';
+	import { onMount } from 'svelte';
+	import { sineIn } from 'svelte/easing';
+	import { formatCurrency, formatDate } from '$lib/utils/format';
 	import { navigating } from '$app/stores';
 	import { Image } from '@unpic/svelte';
+	import type { BaseCourse } from '$lib/types';
 
 	let hideNavMenu = true;
+	let hidden = true; // Estado para el Drawer del carrito
+
+	let transitionParamsRight = {
+		x: 320,
+		duration: 200,
+		easing: sineIn
+	};
+
+	let cartCount = 0;
+	let cartItems: BaseCourse[] = [];
+	let cartTotal = '';
 
 	// Alterna la visibilidad del menú hamburguesa
 	const onNavHamburgerClick = (toggleFn: () => void) => {
@@ -43,41 +58,45 @@
 		}
 	}
 
-	// let transitionParamsRight = {
-	// 	x: 320,
-	// 	duration: 200,
-	// 	easing: sineIn
-	// };
+	onMount(() => {
+		cart.subscribe((items) => {
+			cartItems = items;
+			cartCount = items.length;
+			cartTotal = calculateTotal(items);
+		});
+	});
 
-	// let cartCount = 0;
-	// let cartItems: Course[];
-	// let cartTotal = '';
-
-	// onMount(() => {
-	// 	cart.subscribe((items) => {
-	// 		cartItems = items;
-	// 		cartCount = items.length;
-	// 		cartTotal = calculateTotal(items);
-	// 	});
-	// });
-
-	// function calculateTotal(items: Course[]): string {
-	// 	const total = items.reduce((sum, item) => {
-	// 		const price = parseInt(item.price);
-	// 		return sum + price;
-	// 	}, 0);
-	// 	return formatCurrency(total);
-	// }
+	function calculateTotal(items: BaseCourse[]): string {
+		const total = items.reduce((sum, item) => {
+			const price = parseInt(item.price);
+			return sum + price;
+		}, 0);
+		return formatCurrency(total);
+	}
 </script>
 
 <Navbar
 	let:toggle
-	class="glass-effect fixed left-1/2 top-0 z-50 w-full max-w-[99%] -translate-x-1/2 transform px-4 !text-white shadow-lg md:py-0"
+	class="glass-effect fixed left-1/2 top-0 z-50 w-full max-w-[100%] -translate-x-1/2 transform !rounded-none px-4 !text-white shadow-lg md:py-0"
 >
 	<NavBrand href="/">
 		<Image alt="Logo Iacademic" src="/logos/desktop.svg" width={220} height={55} role="figure" />
 	</NavBrand>
-	<div class="flex items-end md:order-2">
+	<div class="flex items-center space-x-4 md:order-2">
+		<button
+			class="relative flex items-center"
+			on:click={() => (hidden = false)}
+			aria-label="Carrito de compras"
+		>
+			<CartOutline class="h-8 w-8 text-white" />
+			{#if cartCount > 0}
+				<span
+					class="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-xs text-white"
+				>
+					{cartCount}
+				</span>
+			{/if}
+		</button>
 		<NavHamburger onClick={() => onNavHamburgerClick(toggle)} class="hover:bg-transparent" />
 	</div>
 	<NavUl hidden={hideNavMenu}>
@@ -95,7 +114,7 @@
 				>Cobit 2019</DropdownItem
 			>
 			<DropdownItem class="flex items-center justify-between">
-				Agile <ChevronDownOutline class="ms-2 h-6 w-10 text-primary-700" />
+				Agile <ChevronDownOutline class="text-primary-700 ms-2 h-6 w-10" />
 			</DropdownItem>
 			<Dropdown class="!w-max">
 				<DropdownItem href="/courses/agile-leader" on:click={onNavLinkClick}>
@@ -110,7 +129,7 @@
 			</Dropdown>
 
 			<DropdownItem class="flex items-center justify-between">
-				ITIL <RegisterMark /> 4 <ChevronDownOutline class="ms-2 h-6 w-10 text-primary-700" />
+				ITIL <RegisterMark /> 4 <ChevronDownOutline class="text-primary-700 ms-2 h-6 w-10" />
 			</DropdownItem>
 			<Dropdown class="!w-max">
 				<DropdownItem href="/courses/itil-4-fundamentos" on:click={onNavLinkClick}>
@@ -134,7 +153,7 @@
 			</Dropdown>
 
 			<DropdownItem class="flex items-center justify-between">
-				ISO <ChevronDownOutline class="ms-2 h-6 w-10 text-primary-700" />
+				ISO <ChevronDownOutline class="text-primary-700 ms-2 h-6 w-10" />
 			</DropdownItem>
 			<Dropdown class="!w-max">
 				<DropdownItem href="/courses/certified-iso-22301" on:click={onNavLinkClick}>
@@ -153,41 +172,35 @@
 	</NavUl>
 </Navbar>
 
-<!--
 <Drawer
 	placement="right"
 	transitionType="fly"
 	transitionParams={transitionParamsRight}
 	bind:hidden
-	class="flex h-full flex-col !text-white"
+	class="flex h-full w-full flex-col !text-white md:w-[40%]"
 >
 	<div class="flex items-center justify-between border-b border-gray-800 p-4">
-		<Heading tag="h2" customSize="text-lg"
-			>{cartCount > 0 ? 'Cursos agregados' : 'Carrito vacío'}</Heading
-		>
+		<Heading tag="h2" customSize="text-lg">
+			{cartCount > 0 ? 'Cursos agregados' : 'Carrito vacío'}
+		</Heading>
 		<CloseButton on:click={() => (hidden = true)} />
 	</div>
 
 	{#if cartCount > 0}
-		<div class="flex-grow space-y-4 overflow-y-auto p-0 pt-4">
+		<div class="flex-grow space-y-4 overflow-y-auto p-4">
 			{#each cartItems as item}
 				<div class="relative space-y-0">
 					<div class="relative flex items-center rounded-t-sm bg-gray-600 p-4 pt-10 shadow">
 						<div class="flex-grow space-y-2">
-							<h3 class="text-lg font-bold">{item.nameCourse}</h3>
+							<h3 class="text-lg font-bold">{item.name}</h3>
 							<p class="text-lg text-gray-100">{formatCurrency(parseInt(item.price))}</p>
 						</div>
 						<button
-							on:click={() => cart.removeItem(item.id)}
+							on:click={() => cart.removeItem(item.key)}
 							class="absolute right-2 top-2 rounded border border-white bg-transparent px-2 py-1 text-xs text-white hover:bg-white hover:text-black"
 						>
 							Cancelar
 						</button>
-					</div>
-					<div class="rounded-b-sm bg-gray-700 p-2 text-sm">
-						<p class="w-5/5 font-bold text-gray-100">
-							Empieza el {formatDate(new Date(item.initialDate))}
-						</p>
 					</div>
 				</div>
 			{/each}
@@ -196,7 +209,7 @@
 		<div class="border-t border-gray-800 p-4">
 			<p class="text-base font-normal">Total: {cartTotal} ({cartCount})</p>
 			<button
-				class="mt-6 rounded-lg bg-red-600 px-4 py-2 text-base font-semibold text-white hover:bg-red-700"
+				class="mt-6 rounded-lg bg-[#5b49d1] px-4 py-2 text-base font-semibold text-white hover:bg-[#5b49d1]/70"
 			>
 				Continuar compra
 			</button>
@@ -207,15 +220,15 @@
 			<p class="text-sm text-gray-400">Aún no has agregado ningún curso.</p>
 			<a
 				on:click={() => (hidden = true)}
-				href="\courses\all"
-				class="mt-6 rounded-lg bg-red-600 px-4 py-2 text-base font-semibold text-white hover:bg-red-700"
+				href="/courses"
+				class="mt-6 rounded-lg bg-[#5b49d1] px-4 py-2 text-base font-semibold text-white hover:bg-[#5b49d1]/80"
 			>
 				Ver Cursos
 			</a>
 		</div>
 	{/if}
 </Drawer>
--->
+
 <style>
 	:global(.glass-effect) {
 		background: rgba(0, 0, 0, 0.432);

@@ -7,6 +7,7 @@
 	export let data;
 
 	let course: BaseCourse = data.course;
+	console.log(course);
 
 	afterUpdate(() => {
 		course = data.course;
@@ -24,11 +25,13 @@
 </svelte:head>
 
 <CourseDetailLive
+	{course}
 	courseTitle={course?.name}
 	courseDescription={course?.shortDescriptionEcommerce}
 	duration={course?.duration ? `${course.duration} horas` : '32 horas'}
 	certifiedEntity={course?.certifiedEntityEcommerce}
 	courses={course?.scheduledCourses || []}
+	price={parseInt(course?.price)}
 />
 
 <ObjectivesCourseDetail

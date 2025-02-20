@@ -4,6 +4,7 @@
 
 	export let data;
 	const courses = data.courses;
+	console.log(courses);
 	let categoryName = 'Todos los cursos';
 	let categoryKey = '';
 	let filteredCourses = [];

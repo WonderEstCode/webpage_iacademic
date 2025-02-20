@@ -1,30 +1,48 @@
-import type { Course } from '$lib/types';
+import type { BaseCourse } from '$lib/types';
 import { writable } from 'svelte/store';
 
 function createCart() {
-	let storedCart: Course[] = [];
+	let storedCart: BaseCourse[] = [];
+
+	// Inicialización del carrito con manejo de errores
 	if (typeof window !== 'undefined' && window.localStorage) {
-		storedCart = JSON.parse(localStorage.getItem('cart') ?? '[]');
+		try {
+			storedCart = JSON.parse(localStorage.getItem('cart') ?? '[]');
+		} catch (e) {
+			console.error('Error al cargar el carrito desde localStorage:', e);
+			storedCart = [];
+		}
 	}
 
 	const { subscribe, set, update } = writable(storedCart);
 
+	const updateLocalStorage = (cart: BaseCourse[]) => {
+		if (typeof window !== 'undefined' && window.localStorage) {
+			try {
+				localStorage.setItem('cart', JSON.stringify(cart));
+			} catch (e) {
+				console.error('Error al guardar el carrito en localStorage:', e);
+			}
+		}
+	};
+
 	return {
 		subscribe,
-		addItem: (item: Course) =>
+		addItem: (item: BaseCourse) =>
 			update((cart) => {
-				const updatedCart = [...cart, item];
-				if (typeof window !== 'undefined' && window.localStorage) {
-					localStorage.setItem('cart', JSON.stringify(updatedCart));
+				// Ahora usamos key en lugar de id para la comparación
+				if (cart.some((existingItem) => existingItem.key === item.key)) {
+					return cart;
 				}
+				const updatedCart = [...cart, item];
+				updateLocalStorage(updatedCart);
 				return updatedCart;
 			}),
-		removeItem: (id: string) =>
+		removeItem: (key: string) =>
 			update((cart) => {
-				const updatedCart = cart.filter((item) => item.id !== id);
-				if (typeof window !== 'undefined' && window.localStorage) {
-					localStorage.setItem('cart', JSON.stringify(updatedCart));
-				}
+				// Actualizamos para usar key
+				const updatedCart = cart.filter((item) => item.key !== key);
+				updateLocalStorage(updatedCart);
 				return updatedCart;
 			}),
 		clear: () => {
@@ -32,13 +50,6 @@ function createCart() {
 				localStorage.removeItem('cart');
 			}
 			set([]);
-		},
-		findItem: (id: string): boolean => {
-			if (typeof window !== 'undefined' && window.localStorage) {
-				const currentCart = JSON.parse(localStorage.getItem('cart') ?? '[]') as Course[];
-				return currentCart.some((item) => item.id === id);
-			}
-			return false;
 		}
 	};
 }

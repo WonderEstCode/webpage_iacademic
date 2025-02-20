@@ -13,7 +13,7 @@
 </script>
 
 <body
-	class="relative isolate overflow-hidden bg-[#121b1d] px-6 pb-24 pt-8 sm:pb-24 sm:pt-14 lg:overflow-visible lg:px-0"
+	class="relative isolate overflow-hidden bg-[#121b1d] px-10 pb-24 pt-8 sm:pb-24 sm:pt-14 lg:overflow-visible lg:px-0"
 >
 	<div class="absolute inset-0 -z-10 overflow-hidden">
 		<svg
@@ -41,79 +41,77 @@
 			/>
 		</svg>
 	</div>
-	<div
-		class="mx-auto grid max-w-2xl grid-cols-1 gap-x-10 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
-	>
+	<div class="container mx-auto w-full lg:w-[90%]">
 		<div
-			class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+			class="grid max-w-2xl grid-cols-1 gap-x-10 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
 		>
-			<div class="relative lg:pr-4">
-				<div class="glow-background" style="top: 95%; left: 1%;"></div>
-				<div class="relative z-10 lg:max-w-lg">
-					<p class="text-base font-semibold leading-7 text-[#5b49d1]">
-						{subtitle}
-					</p>
-					<h1 class="mt-2 text-3xl font-bold tracking-tight text-[#f4f6fa] sm:text-4xl">
-						{title}
-					</h1>
-					<div class="glow-background" style="top: 90%; left: 1%;"></div>
-					<p class="mt-6 text-lg font-normal leading-8 text-gray-300">
-						{prerequisites}
-					</p>
+			<!-- Sección de texto -->
+			<div
+				class="flex flex-col items-center sm:items-start lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+			>
+				<div class="relative lg:pr-4">
+					<div class="glow-background" style="top: 95%; left: 1%;"></div>
+					<div class="relative z-10 lg:max-w-lg">
+						<p class="text-base font-semibold leading-7 text-[#5b49d1] sm:text-left">
+							{subtitle}
+						</p>
+						<h1
+							class="mt-2 text-3xl font-bold tracking-tight text-[#f4f6fa] sm:text-left sm:text-4xl"
+						>
+							{title}
+						</h1>
+						<div class="glow-background" style="top: 90%; left: 1%;"></div>
+						<p class="mt-6 text-lg font-normal leading-8 text-gray-300 sm:text-left">
+							{prerequisites}
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div
-			class="-my-20 -ml-16 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
-		>
-			<Image
-				class="w-[32rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-700/10 sm:w-[47rem]"
-				src={imgSrc}
-				layout="constrained"
-				width={1500}
-				height={1000}
-			/>
-		</div>
-		<div
-			class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-		>
-			<div class="lg:pr-4">
-				<div class="max-w-xl text-base leading-7 text-gray-300 lg:max-w-lg">
-					<p>{description}</p>
-					<h2 class="mt-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">Objetivos</h2>
-					<ul role="list" class="mt-8 space-y-8 text-gray-400">
-						{#each objectives as objective}
-							<li class="flex gap-x-3">
-								<CheckOutline class="text-[#5b49d1] " />
-								<span>
-									<strong class="font-semibold text-[#f4f6fa]">{objective}</strong>
-								</span>
-							</li>
-						{/each}
-					</ul>
-					<h2 class="my-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">
-						Formato y duración del examen
-					</h2>
-					<List tag="ul" class="space-y-1 text-gray-200 dark:text-gray-400" list="none">
-						{#each examInfo as info}
-							<Li>{info}</Li>
-						{/each}
-					</List>
+
+			<!-- Sección de imagen -->
+			<div
+				class="-my-20 flex justify-center p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:-ml-16 lg:overflow-hidden"
+			>
+				<Image
+					class="w-[32rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-700/10 sm:w-[47rem]"
+					src={imgSrc}
+					layout="constrained"
+					width={1500}
+					height={1000}
+				/>
+			</div>
+
+			<!-- Sección de contenido adicional -->
+			<div
+				class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+			>
+				<div class="mx-auto sm:mx-0 lg:pr-4">
+					<div class="max-w-xl text-base leading-7 text-gray-300 lg:max-w-lg">
+						<p>{description}</p>
+						<h2 class="mt-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">
+							Objetivos
+						</h2>
+						<ul role="list" class="mt-8 space-y-8 text-gray-400">
+							{#each objectives as objective}
+								<li class="flex gap-x-3">
+									<CheckOutline class="text-[#5b49d1] " />
+									<span>
+										<strong class="font-semibold text-[#f4f6fa]">{objective}</strong>
+									</span>
+								</li>
+							{/each}
+						</ul>
+						<h2 class="my-6 text-lg font-bold tracking-tight text-[#f4f6fa] sm:text-xl">
+							Formato y duración del examen
+						</h2>
+						<List tag="ul" class="space-y-1 text-gray-200 dark:text-gray-400" list="none">
+							{#each examInfo as info}
+								<Li>{info}</Li>
+							{/each}
+						</List>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
-
-<style>
-	.glow-background {
-		position: absolute;
-		width: 300px;
-		height: 300px;
-		background: radial-gradient(circle, rgba(76, 53, 250, 0.587) 0%, transparent 40%);
-		filter: blur(50px);
-		transform: translate(-50%, -50%);
-		pointer-events: none;
-		z-index: -1;
-	}
-</style>

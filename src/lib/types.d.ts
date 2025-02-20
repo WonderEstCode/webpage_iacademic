@@ -9,6 +9,9 @@ export type ScheduledCourse = {
 };
 
 export type BaseCourse = {
+	name: string;
+	price: string;
+	id: string;
 	key: string;
 	certifiedEntityEcommerce: string | null;
 	shortDescriptionEcommerce: string | null;

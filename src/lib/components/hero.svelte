@@ -18,6 +18,7 @@
 <div
 	class="hero-section flex flex-col items-center justify-start text-center md:items-start md:justify-center md:text-start"
 >
+	<!-- Imagen de fondo -->
 	<Image
 		src="/background-hero.webp"
 		layout="fullWidth"
@@ -28,16 +29,18 @@
 		loading="eager"
 	/>
 
-	<!-- Figuras animadas (detrás del contenido, pero encima del fondo) -->
+	<!-- Figuras animadas -->
+	<!-- <div class="absolute right-0 hidden h-[60vh] w-[60vw] -translate-y-1/2 transform md:block">
+	</div> -->
 	<AbstractShapes />
 
 	<!-- Contenido principal -->
 	<div
-		class="relative z-10 mt-[15rem] flex flex-col items-center md:ml-32 md:mt-0 lg:ml-48 2xl:ml-72"
+		class="lg:ml-30 relative z-10 mt-[78%] flex max-w-[80%] flex-col items-center md:ml-32 md:mt-0 2xl:ml-72"
 	>
 		<Heading
 			tag="h1"
-			class="mb-4"
+			class="mb-10 md:mb-6"
 			customSize="font-black text-4xl sm:text-3xl md:text-4xl xl:text-5xl"
 		>
 			<Span
@@ -46,7 +49,6 @@
 			>
 				EDUCACIÓN<br /> DEL FUTURO CON <br /> IACADEMIC
 			</Span>
-			<!-- <span class="font-base"> IACADEMIC </span> -->
 		</Heading>
 		<List tag="ul" class="mb-8 space-y-4 text-gray-200" list="none">
 			<Li icon class="gap-3">
@@ -68,15 +70,21 @@
 				</P>
 			</Li>
 		</List>
-
 		<div class="flex items-stretch gap-2 md:gap-4 lg:-ml-16 xl:-ml-24">
 			<Button class="mr-2 w-auto !bg-[#10796ce0] text-white hover:!bg-[#1cf2d8]/70">
 				<a
 					href="#best-courses"
-					class="block h-full w-full"
+					class="block h-full w-full md:hidden"
 					on:click|preventDefault={scrollToBestCourses}
 				>
-					¡Explora Iacademic!
+					¡Explorar!
+				</a>
+				<a
+					href="#best-courses"
+					class="hidden h-full w-full md:block"
+					on:click|preventDefault={scrollToBestCourses}
+				>
+					¡Explorar IAcademic!
 				</a>
 			</Button>
 			<Button class="w-auto !bg-zinc-200 !text-gray-800 hover:!bg-zinc-300">
@@ -84,8 +92,17 @@
 					href="https://www.iacademic.net/es/auth/sign-in"
 					target="_blank"
 					rel="noopener noreferrer"
+					class="hidden md:block"
 				>
-					Ingresar a plataforma
+					Ingresar a la plataforma
+				</a>
+				<a
+					href="https://www.iacademic.net/es/auth/sign-in"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="block md:hidden"
+				>
+					Ingresar
 				</a>
 			</Button>
 		</div>

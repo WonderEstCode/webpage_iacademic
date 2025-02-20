@@ -325,6 +325,14 @@
 		border: none;
 		border-radius: 10px; /* Agrega un borde redondeado */
 	}
+	@media (max-width: 768px) {
+		.glass-effect {
+			background: rgb(59 59 59 / 70%);
+			backdrop-filter: blur(10px);
+			border: none;
+			border-radius: 0;
+		}
+	}
 
 	select {
 		background-color: transparent;

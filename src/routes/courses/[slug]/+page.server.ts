@@ -14,6 +14,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	}
 	const data = await response.json();
 	let course: BaseCourse = JSON.parse(data.data);
+	console.log(course);
 
 	if (course?.hasScheduledCourses) {
 		console.log('course', course);

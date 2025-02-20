@@ -10,6 +10,7 @@ export const load: PageServerLoad = async () => {
 		throw new Error('Error al obtener los datos del API');
 	}
 	const data = await response.json();
+	console.log('data', data);
 	const courses: BaseCourse[] = JSON.parse(data.data);
 
 	return { courses };

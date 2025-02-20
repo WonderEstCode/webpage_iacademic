@@ -38,16 +38,19 @@
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0-alpha.20",
 		"vite": "^5.0.3",
-		"vitest": "^2.0.0"
+		"vitest": "^0.0.28"
 	},
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.4",
 		"@unpic/svelte": "^0.0.53",
+		"animejs": "^3.2.2",
 		"crypto": "^1.0.1",
 		"dotenv": "^16.4.5",
 		"embla-carousel-svelte": "^8.5.2",
 		"gsap": "^3.12.7",
-		"nodemailer": "^6.9.14"
+		"nodemailer": "^6.9.14",
+		"svelte-french-toast": "^1.2.0",
+		"zdog": "^1.1.3"
 	}
 }
